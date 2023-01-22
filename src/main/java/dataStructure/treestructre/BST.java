@@ -1,4 +1,4 @@
-package treestructre;
+package dataStructure.treestructre;
 
 public class BST {
 
