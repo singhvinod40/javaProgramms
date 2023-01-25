@@ -1,24 +1,38 @@
 package exception;
 
-public class TryWithReturn {
-    public static void main(String[] args) {
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
 
-        String s=test();
-        System.out.println(s);
+public class TryWithReturn {
+    public static void main(String[] args) throws IOException {
+        tryWithResource(null, null);
+
     }
 
-        public static String test(){
+
+    public static void tryWithResource(File sourceFile, File destFile) throws IOException {
+
+        FileChannel sourceDire = null;
+        FileChannel target = null;
 
         try {
-            String abc="abc";
-            return abc;
+            sourceDire = new FileInputStream(sourceFile).getChannel();
+            target = new FileInputStream(destFile).getChannel();
+
+            sourceDire.transferTo(0, sourceDire.size(), target);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        } finally {
+            if (sourceDire != null) {
+                sourceDire.close();
+            }
+            if (target != null) {
+                target.close();
+            }
         }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        finally {
-            String def="def";
-            return def;
-        }
-        }
+
+
+    }
 }

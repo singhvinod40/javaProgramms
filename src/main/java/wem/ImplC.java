@@ -1,3 +1,0 @@
-package wem;
-
-class a   {}

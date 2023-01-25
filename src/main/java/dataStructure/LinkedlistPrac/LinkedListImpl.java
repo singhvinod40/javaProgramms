@@ -1,146 +1,127 @@
 package dataStructure.LinkedlistPrac;
 
-public class LinkedListImpl {
+public class LinkedListImpl<T> {
 
-        Node head;
+    Node<T> head;
 
 
-    public void add(int data) {
+    public void add(String s) {
 
-        Node node = new Node();
-        node.data=data;
+        Node node = new Node<>();
+        node.data = s;
 
-        if(head==null){
-            head=node;
-        }
+        if (head == null) {
+            head = node;
+        } else {
+            Node n = head;
 
-        else if(head!=null){
-            Node n=head;
-            while(n.next!=null){
-                n=n.next;
+            while (n.next != null) {
+                n = n.next;
             }
-            n.next=node;
+            n.next = node;
         }
     }
-    void show(){
-      Node n =head;
-      while (n.next!=null){
-          System.out.print(n.data+"  ");
-          n=n.next;
-      }
-        System.out.println(n.data+" ");
+
+    public void show() {
+
+        if (head == null) {
+            System.out.println("[ ]");
+        } else {
+            Node node = head;
+
+            System.out.print("[");
+            while (node.next != null) {
+                System.out.print("\"" + node.data + "\",");
+                node = node.next;
+            }
+            System.out.print("\"" + node.data + "\"]");
+            System.out.println();
+
+        }
+
     }
 
+    public void addAtStart(T s) {
+
+        Node node = new Node<>(s);
+
+        if (head == null) {
+            head = node;
+        } else {
+            node.next = head;
+            head = node;
+        }
+    }
+
+
+    public int size() {
+
+        int length = 0;
+        if (head == null)
+            return 0;
+        else {
+
+            Node node = head;
+
+            while (node.next != null) {
+
+                length++;
+                node = node.next;
+            }
+            return ++length;
+        }
+    }
+
+
+    public void deleteAt(int index) {
+
+        if (index > size()) {
+            throw new IndexOutOfBoundsException();
+        } else if (index < 0) {
+            throw new NegativeArraySizeException();
+        } else {
+
+            Node node = head;
+
+            for (int i = 0; i <= index; i++) {
+                node = node.next;
+            }
+
+            node.next = node.next.next;
+
+        }
+
+    }
 
     public void reverse() {
-        Node node=head;
-        Node current=null;
-        Node previous=null;
-
-        while(node.next!=null){
-
-            current=node;
-            node=node.next;
-
-            current.next=previous;
-            previous=current;
-            current=head;
+        if (head == null) {
+            throw new NullPointerException();
         }
-        System.out.println(current.data);
-        show();
+        if (size() == 1) {
+            show();
+        } else {
 
-    }
 
-    public void deleteHead() {
-        Node node=head;
-        head=node.next;
-    }
+            Node prev = null;
+            Node node = head;
+            Node next = null;
 
-    public void removeLast() {
-        Node n=head;
+            while (node != null){
 
-        while (n.next!=null){
-            n=n.next;
-            if(n.next.next==null){
-                n.next=null;
-                break;
+                next = node.next;
+                node.next = prev;
+                prev  = node;
+                node = next;
+
+
             }
+            node = prev;
+            head = node;
+            show();
+
         }
 
-    }
-
-    public void removeAt(int index) {
-
-        Node n=head;
-
-        for(int i=0;i<index-1;i++){
-           n= n.next;
-        }
-        n.next=n.next.next;
-    }
-
-    public void isPalindrom() {
-
-        Node n=head;
-    }
-
-    public void findMax() {
-        Node node=head;
-        int max=head.data;
-        int count=0;
-        while (node.next!=null){
-
-            if(node.data>max) {
-                max = node.data;
-            }
-            node=node.next;
-        }
-        if (node.data>max){
-            max=node.data;
-        }
-        System.out.println("max val  "+max);
-    }
-
-    public void addAttMiddle() {
-        Node node=head;
-        Node fast=null;
-        Node slow=null;
-//        while ()
 
     }
 
-    public void addAtStart ( int data) {
-
-        Node node=head;
-        Node newNode=new Node(data);
-        head=newNode;
-        head.next=node;
-    }
-
-    public void addAtEnd(int data) {
-
-        Node temp=new Node(data);
-        Node node=head;
-        while(node.next!=null){
-            node=node.next;
-        }
-            node.next=temp;
-    }
-
-    public void removeDuplicate() {
-
-        Node node=head;
-
-        while (node.next!=null){
-
-            int temp=node.data;
-
-            while (node.next!=null){
-
-                if(temp==node.data){
-                    node =node.next;
-                }
-            }
-        }
-    }
 }
