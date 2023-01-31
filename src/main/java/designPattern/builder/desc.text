@@ -1,0 +1,16 @@
+Suppose we have to create a phone object
+    and it has 5,6 data members
+    now we need to provide either all field to constructor or do lots of constructor overloading with null
+
+    Also the sequence  of constructor param  matter.
+
+
+ sol -:    So we will create setters and every setters will return the phone object
+            sequence is not object
+
+
+
+            //////Use this when you have multiple parameter to constructor
+
+
+

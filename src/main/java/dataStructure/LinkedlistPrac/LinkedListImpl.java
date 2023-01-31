@@ -1,11 +1,15 @@
 package dataStructure.LinkedlistPrac;
 
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Set;
+
 public class LinkedListImpl<T> {
 
     Node<T> head;
 
 
-    public void add(String s) {
+    public void add(T s) {
 
         Node node = new Node<>();
         node.data = s;
@@ -120,6 +124,70 @@ public class LinkedListImpl<T> {
             show();
 
         }
+
+
+    }
+
+    public void removeDuplicate(){
+
+        if(size()==1){
+           return;
+        }else{
+
+            Node node = head;
+            Node temp = null;
+            Node index =head;
+
+
+            while (node.next!=null){
+
+                temp = node;
+                index = node.next;
+
+                while (index.next!=null){
+                    if(node.data == index.data){
+                       temp.next = index.next;
+                    }else {
+                       temp =index;
+                    }
+                    index= index.next;
+
+                }
+                node = node.next;
+            }
+        }
+
+
+
+    }
+
+
+    public boolean detectloop(){
+
+            Set<Node> set = new HashSet<>();
+            Node node = head;
+
+            while (node.next != null){
+
+                if(set.contains(node)){
+                    return true;
+                }else
+                    set.add(node);
+                node =node.next;
+            }
+
+        return false;
+    }
+
+
+    public void deleteMnodeAfterN(int m ,int n){
+
+        if(m>size())
+                throw new IndexOutOfBoundsException();
+
+
+
+
 
 
     }

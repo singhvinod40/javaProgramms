@@ -6,32 +6,64 @@ public class Runner {
 
         LinkedListImpl<String> list=new LinkedListImpl();
 
-        list.add("a");
-        list.add("f");
-        list.add("awe");
-        list.add("ads");
-        list.add("awasq");
-        list.add("mkjn");
+//        list.add("a");
+//        list.add("f");
+//        list.add("awe");
+//        list.add("ads");
+//        list.add("awasq");
+//        list.add("mkjn");
+//
+//
+//        list.show();
+//
+//        list.addAtStart("start");
+//
+//        list.show();
+//
+//        System.out.println("Size is "+list.size());
+//
+//
+//        list.deleteAt(3);
+//
+//        list.show();
+//
+//        System.out.println("Size is "+list.size());
+//
+//
+//        System.out.println("Reversed the list");
+//        list.reverse();
+//
+//
+        LinkedListImpl<Integer> li = new LinkedListImpl<>();
+
+        li.add(1);
+        li.add(2);
+        li.add(2);
+        li.add(3);
+        li.add(4);
+        li.add(2);
+        li.add(3);
+        li.add(2);
+
+ //       li.head.next.next.next.next = li.head;
 
 
-        list.show();
+//        li.show();
+//
+//        li.removeDuplicate();
+//
+//        li.show();
 
-        list.addAtStart("start");
+        if(li.detectloop()){
+            System.out.println("There is a loop");
+        }else {
+            System.out.println("No Loop detected");
+        }
 
-        list.show();
-
-        System.out.println("Size is "+list.size());
-
-
-        list.deleteAt(3);
-
-        list.show();
-
-        System.out.println("Size is "+list.size());
+        li.deleteMnodeAfterN(2,3);
+        li.show();
 
 
-        System.out.println("Reversed the list");
-        list.reverse();
 
 ////        list.reverse();
 ////        System.out.println("after reverse" );
