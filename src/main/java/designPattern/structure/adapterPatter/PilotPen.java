@@ -1,4 +1,4 @@
-package designPattern.adapterPatter;
+package designPattern.structure.adapterPatter;
 
 public class PilotPen {
     public void mark(String str){

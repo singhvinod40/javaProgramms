@@ -1,4 +1,4 @@
-package designPattern.prototype;
+package designPattern.creational.builder.prototype;
 
 public class Book {
 

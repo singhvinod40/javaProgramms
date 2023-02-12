@@ -1,4 +1,4 @@
-package designPattern.adapterPatter;
+package designPattern.structure.adapterPatter;
 
 public class School {
     public static void main(String[] args) {

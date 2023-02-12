@@ -33,7 +33,7 @@ class BinarySearchClass {
 
          if(length>=0){
 
-             int mid = (start+length)/2;
+             int mid = start + (length - start)/ 2;;
 
              if(array[mid]==toFind){
                  return mid;

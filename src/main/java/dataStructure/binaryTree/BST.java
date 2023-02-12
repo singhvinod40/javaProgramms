@@ -278,4 +278,67 @@ public class BST {
     }
 
 
+   static int count = 0;
+    public Node findKthSmallestNumber(Node node, int k){
+
+        if(node == null)
+                return null ;
+
+
+
+        Node left = findKthSmallestNumber(node.left,k);
+
+        if(left != null){
+            return left;
+        }
+        count++;
+
+        if(count ==k){
+            return node;
+        }
+
+        return findKthSmallestNumber(node.right,k);
+
+
+    }
+
+    static int largeCount;
+    public Node findKthLargest(Node node ,int k){
+
+        if(node == null)
+                    return null;
+
+        Node right = findKthLargest(node.right,k);
+
+        if(right != null)
+                return right;
+
+        largeCount++;
+
+        if(largeCount == k)
+                return node;
+
+
+        return findKthLargest(node.left,k);
+
+
+
+    }
+
+
+    public int depth(Node node){
+
+        if (node == null){
+            return 0;
+        }
+
+       int  leftheight = depth(node.left);
+       int rightheight = depth(node.right);
+
+
+        return Math.max(leftheight +1,rightheight+1);
+
+    }
+
+
 }

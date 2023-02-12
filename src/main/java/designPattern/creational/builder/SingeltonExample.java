@@ -1,8 +1,6 @@
-package designPattern;
+package designPattern.creational.builder;
 
 import java.io.*;
-import java.lang.management.ClassLoadingMXBean;
-import java.lang.reflect.Constructor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -52,7 +50,7 @@ class Test{
         print(" singleton s2",s2);
 
 //        //voilation br reflection
-//        Class cls=Class.forName("designPattern.SingeltonExample");
+//        Class cls=Class.forName("designPattern.creational.builder.SingeltonExample");
 //        Constructor con= cls.getDeclaredConstructor();
 //        con.setAccessible(true);
 //        SingeltonExample s3=(SingeltonExample)con.newInstance();

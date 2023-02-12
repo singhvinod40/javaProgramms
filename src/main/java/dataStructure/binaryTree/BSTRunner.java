@@ -73,5 +73,13 @@ public class BSTRunner {
            System.out.println("Pair Exist");
        else System.out.println("Pait not exist");
 
+
+       Node node4 = bst.findKthSmallestNumber(node,4);
+
+        System.out.println("4 th smallest Node is "+ node4.data);
+
+
+        System.out.println("depth of tree is " + bst.depth(node));
+
     }
 }

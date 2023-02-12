@@ -1,4 +1,4 @@
-package designPattern.factoryDesignPattern;
+package designPattern.creational.builder.factoryDesignPattern;
 
 public class Anderiod implements OS{
 

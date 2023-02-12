@@ -1,6 +1,4 @@
-package designPattern.prototype;
-
-import dataStructure.LinkedlistPrac.LinkedListImpl;
+package designPattern.creational.builder.prototype;
 
 import java.util.ArrayList;
 import java.util.List;
