@@ -38,8 +38,6 @@ public class PhoneBuilder {
 
 
     public Phone getPhone(){
-
-
         return new Phone(os,ram,processor,screenSize,battery);
     }
 }

@@ -81,5 +81,8 @@ public class BSTRunner {
 
         System.out.println("depth of tree is " + bst.depth(node));
 
+        System.out.println("Breadth First");
+        bst.printLevelOrder(node);
+
     }
 }

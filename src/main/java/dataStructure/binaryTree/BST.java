@@ -37,8 +37,7 @@ public class BST {
             node.right = delete(node.right, value);
         } else {
             if (node.left == null || node.right == null) {
-                Node tmp = null;
-                tmp = node.left == null ? node.right : node.left;
+                Node tmp = node.left == null ? node.right : node.left;
 
                 if (tmp == null) {
                     return null;
@@ -339,6 +338,29 @@ public class BST {
         return Math.max(leftheight +1,rightheight+1);
 
     }
+
+    public void printLevelOrder(Node node)
+    {
+        int h = depth(node);
+
+        for ( int i = 1; i <= h; i++)
+            breadthFirstPrint(node, i);
+    }
+    public void breadthFirstPrint(Node node,int level){
+
+
+        if(node == null)
+                return;
+
+        if(level == 1){
+            System.out.print (node.data +" , ");
+        }else {
+           breadthFirstPrint(node.left,level-1);
+           breadthFirstPrint(node.right,level-1);
+        }
+        }
+
+
 
 
 }
